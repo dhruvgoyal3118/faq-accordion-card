@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    8. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+  :root{
+    --clr-gradient-100:hsl(273, 75%, 66%);
+    --clr-gradient-300:hsl(240, 73%, 65%);
+
+    --clr-primary-900:hsl(238, 29%, 16%);
+    --clr-primary-500:hsl(14, 88%, 65%);
+
+    --clr-neutral-400:hsl(237, 12%, 33%);
+    --clr-neutral-40:hsl(240, 6%, 50%);
+
+    --clr-divider :hsl(240, 5%, 91%);
+
+    --ff-regular:"Kumbh Sans", sans-serif;
+
+    --fw-regular:400;
+    --fw-bold:700;
+
+
+  }
+  body{
+    /* background-image:  linear-gradient(var(--clr-gradient-100),var(--clr-gradient-300)); */
+     background: linear-gradient(180deg,var(--clr-gradient-100) 0%,var(--clr-gradient-300) 100%);
+    background-repeat: no-repeat; 
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-family: var(--ff-regular);
+    font-weight: var(--fw-regular);
+    z-index: -5;
+  }
+
+  .container{
+    background: #fff;
+    margin-top:7rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    border:none;
+    border-radius: 1.5rem;
+    max-width: 50rem;
+    box-shadow: 0px 102px 41px rgba(0, 0, 0, 0.03),
+    0px 57px 34px rgba(0, 0, 0, 0.1), 0px 25px 25px rgba(0, 0, 0, 0.17);
+   
+}
+.illustration{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 0 rem; */
+}
+.image{
+    position: relative;
+}
+.woman{
+    position: absolute;
+    width: 100%;
+    transform: translateY(-117%);
+    z-index: 2;
+}
+.bg{
+    position: relative;
+    transform: scale(0.95);
+
+}
+
+.box{
+    display: none;
+    z-index: 20;
+}
+
+
+.content{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap:0.2rem;
+    /* margin-top: -0.5rem; */
+    margin-bottom: 1rem;
+    padding: 1.4rem;
+}
+h1{
+  font-size: 1.9rem;
+  font-weight: var(--fw-bold);
+}
+.item{
+  border: 0.6px solid var(--clr-divider);
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  width: 100%;
+  /* justify-content: center */
+}
+.question{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 0.5rem; */
+  color: var(--clr-neutral-40);
+  padding: 0.6rem;
+
+  
+}
+.question:hover{
+ 
+  color: var(--clr-primary-500) !important;
+}
+
+.question span{
+  margin-right: 1rem;
+  font-weight: var(--fw-bold);
+}
+.answer{
+    display: none;
+}
+.answer{
+  /* background-color: aqua; */
+  width: 90%;
+  padding-left: 0.3rem;
+  color: var(--clr-neutral-40);
+}
+.rotated{
+  transform: rotate(180deg);
+}
+
+/* cannot add hover */
+
+
+@media (min-width: 940px)
+{
+ .container{
+  flex-direction: row;
+  justify-content: space-between;
+  /* width: 80%; */
+  flex-grow: 1;
+  overflow: hidden;
+  /* height:  70vh; */
+ }
+ .bg{
+  scale:1.5;
+  transform: translate(-20%,-10%);
+ }
+ .illustration{
+  /* max-width: 20%; */
+  flex-basis: 60%;
+  overflow: hidden;
+ }
+ .woman{
+  /* display: none; */
+  transform: translate(-10%,-125%);
+  /* transform: translateX(-5%); */
+
+ }
+ .heading{
+  align-self: flex-start;
+ }
+ .box{
+   /* display: absolute; */
+   display: block;
+   position: absolute;
+   width: 100%;
+   transform: translate(-10%,6%);
+   animation: boxHop 2s ease-in-out;
+   animation-iteration-count: infinite;
+
+ }
+ .content{
+  flex-basis: 40%;
+ }
+ .heading{
+  margin-bottom:2rem ;
+ }
+
+ @keyframes boxHop {
+  from {
+    transform: translate(-10%, 6%);
+  }
+  50% {
+    transform: translate(-10%, 2%);
+  }
+  to {
+    transform: translate( -10% ,6%);
+  }
+}
+
+
+}
